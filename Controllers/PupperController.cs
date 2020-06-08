@@ -18,9 +18,22 @@ namespace Pupper.Controllers
 
     // GET api/animals
     [HttpGet]
-    public ActionResult<IEnumerable<Doggo>> Get()
+    public ActionResult<IEnumerable<Doggo>> Get(string breed, string gender,string name)
     {
-      return _db.Doggos.ToList();
+      var query = _db.Doggos.AsQueryable();
+      if(breed != null)
+      {
+        query = query.Where(entry => entry.Breed == breed);
+      }
+      if (gender != null)
+      {
+        query = query.Where(entry => entry.Gender == gender);
+      }
+      if(name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+      return query.ToList();
     }
 
     [HttpGet("{id}")]
