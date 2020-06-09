@@ -1,27 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Pupper.Models;
 
-namespace Pupper.Controllers
+namespace Pupper.Controller
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class PupperController : ControllerBase
+  public class DoggoController : ControllerBase
   {
     private PupperContext _db;
 
-    public PupperController(PupperContext db)
+    public DoggoController(PupperContext db)
     {
       _db = db;
     }
 
     // GET api/animals
     [HttpGet]
-    public ActionResult<IEnumerable<Doggo>> Get(string breed, string gender,string name)
+    public ActionResult<IEnumerable<Doggo>> Get(string breed, string gender, string name)
     {
       var query = _db.Doggos.AsQueryable();
-      if(breed != null)
+      if (breed != null)
       {
         query = query.Where(entry => entry.Breed == breed);
       }
@@ -29,7 +30,7 @@ namespace Pupper.Controllers
       {
         query = query.Where(entry => entry.Gender == gender);
       }
-      if(name != null)
+      if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
       }
@@ -47,6 +48,24 @@ namespace Pupper.Controllers
     public void Post([FromBody] Doggo doggo)
     {
       _db.Doggos.Add(doggo);
+      _db.SaveChanges();
+    }
+
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] Doggo doggo)
+
+    {
+      doggo.DoggoId = id;
+      _db.Entry(doggo).State = EntityState.Modified;
+      _db.SaveChanges();
+    }
+
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+
+    {
+      var doggoToDelete = _db.Doggos.FirstOrDefault(entry => entry.DoggoId == id);
+      _db.Doggos.Remove(doggoToDelete);
       _db.SaveChanges();
     }
   }

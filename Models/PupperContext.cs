@@ -18,9 +18,9 @@ namespace Pupper.Models
                     DoggoId = 1, 
                     Name = "Matilda", 
                     Breed = "Mutt",
-                     Age = 7, 
-                     PicUrl = "https://t1.ea.ltmcdn.com/en/images/4/0/0/small_white_dog_breeds_3004_600.jpg",
-                      Gender = "Female" 
+                    Age = 7, 
+                    PicUrl = "https://t1.ea.ltmcdn.com/en/images/4/0/0/small_white_dog_breeds_3004_600.jpg",
+                    Gender = "Female" 
                       
                   },
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj": {}
+    "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj": {}
   },
   "projects": {
-    "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj": {
+    "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
+        "projectUniqueName": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
         "projectName": "pupper",
-        "projectPath": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
+        "projectPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
         "packagesPath": "C:\\Users\\maili\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\obj\\",
+        "outputPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -65,6 +65,10 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
