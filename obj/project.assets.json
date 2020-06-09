@@ -12401,11 +12401,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
+      "projectUniqueName": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
       "projectName": "pupper",
-      "projectPath": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
+      "projectPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
       "packagesPath": "C:\\Users\\maili\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\maili\\github\\pupper.solution\\pupper\\obj\\",
+      "outputPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12466,16 +12466,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
