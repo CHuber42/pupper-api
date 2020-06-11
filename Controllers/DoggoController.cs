@@ -3,9 +3,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pupper.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Pupper.Controller
 {
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class DoggoController : ControllerBase
@@ -17,6 +19,7 @@ namespace Pupper.Controller
       _db = db;
     }
 
+    [AllowAnonymous]
     // GET api/animals
     [HttpGet]
     public ActionResult<IEnumerable<Doggo>> Get(string breed, string gender, string name)
@@ -37,6 +40,7 @@ namespace Pupper.Controller
       return query.ToList();
     }
 
+    [AllowAnonymous]
     [HttpGet("{id}")]
     public ActionResult<Doggo> Get(int id)
     {
