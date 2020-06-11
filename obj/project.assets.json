@@ -12395,30 +12395,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\maili\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/jhvozdovich/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
+      "projectUniqueName": "/Users/jhvozdovich/Desktop/pupper/pupper.csproj",
       "projectName": "pupper",
-      "projectPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\pupper.csproj",
-      "packagesPath": "C:\\Users\\maili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maili\\github\\pupper.solution\\pupper\\obj\\",
+      "projectPath": "/Users/jhvozdovich/Desktop/pupper/pupper.csproj",
+      "packagesPath": "/Users/jhvozdovich/.nuget/packages/",
+      "outputPath": "/Users/jhvozdovich/Desktop/pupper/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\maili\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/jhvozdovich/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

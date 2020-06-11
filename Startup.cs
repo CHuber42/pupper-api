@@ -7,6 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Pupper.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Pupper.Helpers;
+using Pupper.Services;
+using System.Text;
 
 
 namespace Pupper
@@ -29,7 +34,6 @@ namespace Pupper
           opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
       services.AddSwaggerGen(c =>
        {
          c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -37,12 +41,37 @@ namespace Pupper
 
       services.AddCors(options =>
         {
-          options.AddPolicy(name: MyAllowSpecificOrigins,
+          options.AddPolicy(MyAllowSpecificOrigins,
             builder =>
             {
               builder.WithOrigins("http://localhost:5000");
             });
         });
+
+      var appSettingsSection = Configuration.GetSection("AppSettings");
+      services.Configure<AppSettings>(appSettingsSection);
+
+      var appSettings = appSettingsSection.Get<AppSettings>();
+      var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+      services.AddAuthentication(x =>
+      {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+      })
+      .AddJwtBearer(x =>
+      {
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+          ValidateIssuerSigningKey = true,
+          IssuerSigningKey = new SymmetricSecurityKey(key),
+          ValidateIssuer = false,
+          ValidateAudience = false
+        };
+      });
+
+      services.AddScoped<IUserService, UserService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +94,7 @@ namespace Pupper
  });
       // app.UseHttpsRedirection();
       app.UseCors(MyAllowSpecificOrigins);
+      app.UseAuthentication();
       app.UseMvc();
     }
   }
